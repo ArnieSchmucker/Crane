@@ -1,51 +1,36 @@
-#include "TactileSwitch.h"
-TactileSwitch switch1(10, false);
-//TactileSwitch switch2(11, false);
-//TactileSwitch switch3(4, false);
-//TactileSwitch switch4(5, false);
-//TactileSwitch switch5(6, false);
-//TactileSwitch switch6(7, false);
-//TactileSwitch switch7(8, false);
-//TactileSwitch switch8(9, false);
 
+const byte switch1 = 10;
+const byte switch2 = 11;
+const byte switch3 = 4;
+const byte switch4 = 5;
+const byte switch5 = 6;
+const byte switch6 = 7;
+const byte switch7 = 8;
+const byte switch8 = 9;
 
 void setup() {
   Serial.begin(9600);
-  switch1.begin();
-//  switch2.begin();
-//  switch3.begin();
-//  switch4.begin();
-//  switch5.begin();
-//  switch6.begin();
-//  switch7.begin();
-//  switch8.begin();
-
+  
+  pinMode(switch1, INPUT);
+  pinMode(switch2, INPUT);
+  pinMode(switch3, INPUT);
+  pinMode(switch4, INPUT);
+  pinMode(switch5, INPUT);
+  pinMode(switch6, INPUT);
+  pinMode(switch7, INPUT);
+  pinMode(switch8, INPUT);
 }
 
 void loop() {
-  bool x1 = switch1.momentary();
-  if (x1 == true) {
-    Serial.print('A');
-  } else {
-    Serial.print('X');
-  }
-  //bool x2 = switch2.momentary();
-  //bool x3 = switch3.momentary();
-  //bool x4 = switch4.momentary();
-  //bool x5 = switch5.momentary();
-  //bool x6 = switch6.momentary();
-  //bool x7 = switch7.momentary();
-  //bool x8 = switch8.momentary();
-
-  //Serial.print(x1);
-  //Serial.print(x2);
-  //Serial.print(x3);
-  //Serial.print(x4);
-  //Serial.print(x5);
-  //Serial.print(x6);
-  //Serial.print(x7);
-  //Serial.println(x8);
- /*
+  bool x1 = digitalRead(switch1);
+  bool x2 = digitalRead(switch2);
+  bool x3 = digitalRead(switch3);
+  bool x4 = digitalRead(switch4);
+  bool x5 = digitalRead(switch5);
+  bool x6 = digitalRead(switch6);
+  bool x7 = digitalRead(switch7);
+  bool x8 = digitalRead(switch8);
+  
   if (x1 == true && x2 == false && x3 == false && x4 == false && x5 == false && x6 == false && x7 == false && x8 == false) {
     Serial.print('A');
   } else if (x1 == false && x2 == true && x3 == false && x4 == false && x5 == false && x6 == false && x7 == false && x8 == false ) {
@@ -65,6 +50,6 @@ void loop() {
   } else {
     Serial.print('X');
   }
-  */
+
   delay(100);
 }
