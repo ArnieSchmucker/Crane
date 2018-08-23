@@ -48,14 +48,16 @@ bool Compressor::readPressureSensor()
   bool pressureSensor;
   int currentVolts;
   int previousVolts;
+  int maxPressure = 350;
+  int minPressure = 200;
   currentVolts = analogRead(_sensorPin);
-  if (currentVolts <= 200) {
+  if (currentVolts <= minPressure) {
     pressureSensor = true;
   }
-  else if (currentVolts > 200 && previousVolts < currentVolts && currentVolts <= 250) {
+  else if (currentVolts > minPressure && previousVolts < currentVolts && currentVolts <= maxPressure) {
     pressureSensor = true; 
   }
-  else if (currentVolts > 200 && previousVolts >= currentVolts && currentVolts <= 250) {
+  else if (currentVolts > minPressure && previousVolts >= currentVolts && currentVolts <= maxPressure) {
     pressureSensor = false;
   }
   else {
